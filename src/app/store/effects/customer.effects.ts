@@ -25,7 +25,7 @@ export class CustomersEffects {
 
   @Effect()
   loadAll$: Observable<Action> = this.actions$.pipe(
-      ofType(CustomerActionTypes.LOAD_ALL_CUSTOMERS), /* When [Contacts] LOAD ALL action is dispatched */
+      ofType(CustomerActionTypes.LOAD_ALL_CUSTOMERS), /* When [Customer] LOAD ALL action is dispatched */
       startWith((action: LoadAllCustomers) => new LoadAllCustomers(action.payload)),
       switchMap( (action: LoadAllCustomers) => this.customersService.getAllCustomers(action.payload.regionId)), /* Hit the Contacts Index endpoint of our REST API */
       /* Dispatch LoadAllSuccess action to the central store with id list returned by the backend as id*/
